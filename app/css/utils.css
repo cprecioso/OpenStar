@@ -1,0 +1,204 @@
+.film_roll_wrapper img {
+border: 10px solid white;
+box-shadow: 7px 7px 15px #777;
+margin-left: 5px;
+margin-right: 5px;
+transition: all 1s ease;
+width:250px;
+height:250px;
+}
+.film_roll_wrapper .active img {
+border: 10px solid yellow;
+}
+.film_roll_container {
+position: relative;
+}  
+.cover-overlay{
+position:absolute;
+width:250px;
+height:250px;
+top:0;
+z-index:99;
+overflow:hidden;
+} 
+.cover{
+width:250px;
+height:250px;
+outline: none;
+}
+
+video{
+height:300px;
+}
+.navbar-brand-centered {
+    position: absolute;
+    left: 50%;
+    display: block;
+    width: 200px;
+    text-align: center;
+    font-size:15px;
+}
+.navbar>.container .navbar-brand-centered, 
+.navbar>.container-fluid .navbar-brand-centered {
+    margin-left: -100px;
+}
+.stylish-input-group .input-group-addon{
+background: white !important; 
+}
+.stylish-input-group .form-control{
+border-right:0; 
+box-shadow:0 0 0; 
+border-color:#ccc;
+}
+.stylish-input-group button{
+border:0;
+background:transparent;
+}
+
+#search_form{
+	margin-top: -10px !important;
+	padding:0;
+	display:none;
+}
+#slider{
+	margin-top:30px;
+}
+#search-input{
+	width: 190px; 
+	margin-right: 35px, border: 1px solid black;
+    background-color: #e5e5e5;
+}
+#banner{
+	margin-left:-15px !important;
+	margin-right:-15px !important;
+	
+}
+#current_title{
+	font-size: 30px !important;
+	color:white !important;
+}
+#current-author{
+	font-size: 20px;
+}
+.progress-container{
+	margin:0 auto;
+	text-align:center;
+	width:100px;
+	height:100px;
+	padding-top:65px;
+}
+.hid{
+	display:none;
+}
+#game-container{
+	text-align:center;
+	margin:0 auto;
+	height:100%;
+}
+.topbar-wrapper{
+	position:absolute;
+	width:100%;
+	margin:0 auto;
+}
+body,html{
+	margin:0 !important;
+	padding:0 !important;
+	overflow:hidden;
+}
+
+#topbar{
+	height:70px;
+	width:100%;
+	top:0;
+	margin-bottom: 0;
+	position:fixed;
+	background-color:rgba(0, 0, 0, 0.51);
+	color:white;font-size: 40px;
+	padding-top: 35px;
+	z-index:99;
+}
+#score{
+	width:200px;
+	font-size:34px;
+	color:white;
+	font-weight: 700;
+}
+#mic_selector{
+	float:right;
+	width:200px;
+	height:100px;
+	display:none;
+}
+#bubbles{
+	width:900px;
+	height:240px;
+	margin:0 auto;
+	margin-top:200px;
+}
+#voices{
+	width:100%;
+	height:100%;
+	position:absolute;
+}
+#pitches{
+	width:100%;
+	height:100%;
+	float:left;
+}
+#position{
+	display:none;
+	position:relative;
+	top:0;
+	width:2px;
+	height:100%;
+	background-color:black;
+}
+#lyrics{
+	text-align:center;
+	font-size: 25px;
+	height:70px;
+	width:100%;
+	margin-top:10px;
+	bottom:0;
+	margin-bottom: 0;
+	position:fixed;
+	background-color:rgba(0, 0, 0, 0.51);
+	color:white;
+	font-size: 40px;
+	padding-top: 10px;
+}
+#video{
+	height:100%;
+}
+
+.singing{
+	color:red;
+}
+.bubble{
+	height:20px;
+	border-radius: 20px;
+	background-color:rgba(255, 255, 255, 0.73);
+	float:left;
+}
+.inner{
+	background-color:red;
+	
+}
+.voice{
+	width:1px;
+	height:50px;
+	background-color:green;
+	float:left;
+}
+#no-results{
+	font-size:25px;
+	margin-top:50px;
+}
+#no-results-explanation{
+	margin-top:20px;
+	font-size:15px;
+	color:white;
+}
+.slick-current img{
+	border:3px solid white;
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>OpenStar</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="css/bootstrap.css" />
+  <link rel="stylesheet" href="css/usebootstrap.css" />
+  <link rel="stylesheet" href="css/utils.css" />
+  <link rel="stylesheet" href="css/slick.css" />
+  <link rel="stylesheet" href="css/slick-theme.css" />
+  <link rel="stylesheet" href="css/circle.css" />
+
+</head>
+<body>
+  <div id="content" style="width:1000px;height:550px;overflow:hidden;"></div>
+   <script>window.$ = window.jQuery = require('jquery');</script> 
+   <script>require('slick-carousel');</script> 
+   <script>require('electron-connect').client.create()</script>
+   <script>	var ipc = require("electron").ipcRenderer </script>
+   <script src="js/pitchdetect.js"></script>
+   <script src="js/game.js"></script>
+   <script src="js/lyrics.js"></script>
+   <script src="js/slick.min.js"></script>
+   <script src="js/index.js"></script>
+
+  <!-- build:remove -->
+  <!-- Connect to server process -->
+  <!-- end:build -->
+</body>
+</html>
