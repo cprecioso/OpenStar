@@ -8,6 +8,8 @@ const BrowserWindow = electron.BrowserWindow
 
 const path = require('path')
 
+const process = require('process')
+
 const fs = require('fs');
 
 const ipc = electron.ipcMain;
@@ -29,6 +31,8 @@ var j = request.jar(new FileCookieStore(__dirname+'/assets/cookies.json'));
 var downloadEvent;
 
 var Transcoder = require('stream-transcoder');
+
+process.env['FFMPEG_BIN_PATH'] = __dirname+"/ffmpeg";
 
 let loginUltrastar=function(){
 	request.post({url:"http://ultrastar-es.org/foro/ucp.php?mode=login", jar: j, form: {username:'openstar', password:'openstarAPI', login:''}}, function (error, response, body) {
