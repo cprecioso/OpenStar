@@ -13,7 +13,7 @@
     Tyson talk for an extended period of time!
 */
 
-var gulp = require('gulp')
+const gulp = require('gulp')
 const source = require('vinyl-source-stream')
 const browserify = require('browserify')
 const glob = require('glob')
@@ -47,21 +47,6 @@ gulp.task('build-client-bundles', (done) => {
         }))
         .pipe(gulp.dest('./build'))
     })
-
-    es.merge(tasks).on('end', done)
-  })
-})
-
-gulp.task('build-client-css', (done) => {
-  glob('./app/css/*.css', (err, files) => {
-    if (err) done(err)
-
-    let tasks = files.map((entry) => {
-    return gulp.src(entry)
-        .pipe(rename({
-          dirname: 'css'
-      })).pipe(gulp.dest('./build'))
-	  })
 
     es.merge(tasks).on('end', done)
   })
@@ -111,23 +96,6 @@ gulp.task('build-client-html-production', (done) => {
   })
 })
 
-gulp.task('build-client-songs', (done) => {
-  glob('./app/songs/**/*', (err, files) => {
-    if (err) done(err)
-
-    let tasks = files.map((entry) => {
-      console.log(entry)
-      return gulp.src(entry)
-        .pipe(rename({
-          dirname: 'songs'
-        }))
-        .pipe(gulp.dest('./build'))
-    })
-
-    es.merge(tasks).on('end', done)
-  })
-})
-
 gulp.task('build-client-assets', (done) => {
   glob('./app/assets/**/*', (err, files) => {
     if (err) done(err)
@@ -145,9 +113,9 @@ gulp.task('build-client-assets', (done) => {
   })
 })
 
-gulp.task('build-client', ['build-client-bundles', 'build-client-songs', 'build-client-css', 'build-client-scss', 'build-client-html', 'build-client-assets'])
+gulp.task('build-client', ['build-client-bundles', 'build-client-scss', 'build-client-html', 'build-client-assets'])
 
-gulp.task('build-client-production', ['build-client-bundles','build-client-songs', 'build-client-css', 'build-client-scss', 'build-client-html-production', 'build-client-assets'])
+gulp.task('build-client-production', ['build-client-bundles', 'build-client-scss', 'build-client-html-production', 'build-client-assets'])
 
 gulp.task('build-server', (done) => {
   glob('./src/*.js', (err, files) => {
@@ -229,10 +197,7 @@ gulp.task('serve', ['build', 'watch'], () => {
 
 /* These are the packaging tasks! */
 
-gulp.task('package-osx', () => {
-	console.log("Aqui");
-	console.log(gulp.src('./build/**')
-    .pipe(electronPackager({ version: electronVersion, platform: 'darwin' })));
+gulp.task('package-osx', ['build-production'], () => {
   return gulp.src('./build/**')
     .pipe(electronPackager({ version: electronVersion, platform: 'darwin' }))
     .pipe(symdest('release'))

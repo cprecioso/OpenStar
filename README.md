@@ -19,11 +19,29 @@ Technologies
 - **Package manager**: npm
 
 Features
-----------
+--------
 - Support for UltraStar TXT files
 - Lyrics sync
 - Microphone input
 - Pitch recognigment
 - **Songs search!**
 - **Songs download!**
+
+Getting started
+---------------
+To start developing you need to make sure you have NodeJS installed and updated.
+
+Clone this repo:
+
+	git clone https://github.com/pabgn/OpenStar
+	
+Run npm
+
+	npm install
+	
+Run the app
+
+	gulp serve
+	
+Gulp and its watchers will check for changes in the files, so you only need to worry about programming while it is running.
 

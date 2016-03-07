@@ -179,6 +179,11 @@ let getSongs=function(query, event){
 let mainWindow
 
 let getSavedSongs= () => {
+	var dir = __dirname+"/songs";
+	if (!fs.existsSync(dir)){
+    	fs.mkdirSync(dir);
+
+	}
   return fs.readdirSync(__dirname+"/songs").filter(function(file) {
     return fs.statSync(path.join(__dirname+"/songs", file)).isDirectory();
   });
