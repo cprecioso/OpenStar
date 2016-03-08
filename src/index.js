@@ -1,38 +1,27 @@
 'use strict'
 
-process.env['FFMPEG_BIN_PATH'] = __dirname+"/assets/ffmpeg";
+const {app, BrowserWindow, ipcMain: ipc} = require("electron")
+const process = require("process")
+const fs = require("fs")
+const path = require("path")
+const _request = require("request")
+const {select} = require("soupselect")
+const htmlparser = require("htmlparser")
+const WebTorrent = require('webtorrent')
+const FileCookieStore = require('tough-cookie-filestore')
+const Transcoder = require('stream-transcoder')
 
-const electron = require('electron')
+const request = _request.defaults({
+  jar: request.jar(new FileCookieStore(path.join(__dirname,'/assets/cookies.json')))
+})
+const client = new WebTorrent()
+
+process.env['FFMPEG_BIN_PATH'] = path.join(__dirname, "/assets/ffmpeg")
+
 // Module to control application life.
-const app = electron.app
 // Module to create native browser window.
-const BrowserWindow = electron.BrowserWindow
-
-const path = require('path')
-
-const process = require('process')
-
-const fs = require('fs');
-
-const ipc = electron.ipcMain;
-
-var request = require('request');
-
-var request = request.defaults({jar: true})
-
-var select = require('soupselect').select;
-var htmlparser = require("htmlparser");
-
-var WebTorrent = require('webtorrent')
-
-var client = new WebTorrent()
-
-var FileCookieStore = require('tough-cookie-filestore');
-var j = request.jar(new FileCookieStore(__dirname+'/assets/cookies.json'));
 
 var downloadEvent;
-
-var Transcoder = require('stream-transcoder');
 
 console.log(process.env.FFMPEG_BIN_PATH);
 let loginUltrastar=function(){
