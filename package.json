@@ -1,5 +1,5 @@
 {
-  "name": "OpenStar",
+  "name": "openstar",
   "version": "0.1.0",
   "description": "Ultrastar JavaScript alternative",
   "main": "build/index.js",
@@ -44,7 +44,6 @@
   "dependencies": {
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
-    "request": "^2.69.0",
     "jquery":"^1.12",
     "slick-carousel":"^1.5.9",
     "react-global":"0.1.8",
@@ -67,7 +66,9 @@
       ]
    }},
   "scripts": {
-  "pack": "npm build",
-  "dist": "npm build"
+    "start": "gulp serve",
+    "package": "gulp package",
+    "build": "gulp build",
+    "test": "gulp lint"
   }
 }
