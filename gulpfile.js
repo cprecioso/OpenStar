@@ -29,7 +29,7 @@ const electronPackager = require('gulp-atom-electron')
 const symdest = require('gulp-symdest')
 const zip = require('gulp-vinyl-zip')
 
-const electronVersion = '0.36.8'
+const electronVersion = require("electron-prebuilt/package.json").version
 
 /* These are the building tasks! */
 
