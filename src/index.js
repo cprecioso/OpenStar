@@ -1,5 +1,7 @@
 'use strict'
 
+process.env['FFMPEG_BIN_PATH'] = __dirname+"/assets/ffmpeg";
+
 const electron = require('electron')
 // Module to control application life.
 const app = electron.app
@@ -32,8 +34,7 @@ var downloadEvent;
 
 var Transcoder = require('stream-transcoder');
 
-process.env['FFMPEG_BIN_PATH'] = __dirname+"/ffmpeg";
-
+console.log(process.env.FFMPEG_BIN_PATH);
 let loginUltrastar=function(){
 	request.post({url:"http://ultrastar-es.org/foro/ucp.php?mode=login", jar: j, form: {username:'openstar', password:'openstarAPI', login:''}}, function (error, response, body) {
         if (!error && response.statusCode == 200) {
