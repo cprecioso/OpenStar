@@ -84,7 +84,7 @@ var transcode=function(name, path){
 }
 
 var downloadTorrentFinished=function(buff){
-	client.add(buff, {path: __dirname+"/songs/", }, function (torrent) {
+	client.add(buff, {path: path.join(__dirname, "/songs/")}, function (torrent) {
 	  // Got torrent metadata!
 	  console.log('Client is downloading:', torrent.infoHash)
 	  torrent.on('download', function(chunkSize){
@@ -96,10 +96,10 @@ var downloadTorrentFinished=function(buff){
 	  var f = undefined;
 	  torrent.files.forEach(function(file){
 	     if(file.name.indexOf(".avi")!=-1){
-		     console.log(__dirname+"/songs/"+file.path);
+		     console.log(path.join(__dirname, "/songs/", file.path));
 		     //Transcoding needed
 		     trans=true;
-		     transcode(file.name.replace(".avi", ""), __dirname+"/songs/"+file.path);	
+		     transcode(file.name.replace(".avi", ""), path.join(__dirname, "/songs/", file.path));	
 
 	     }
 	  })
@@ -184,13 +184,13 @@ let getSongs=function(query, event){
 let mainWindow
 
 let getSavedSongs= () => {
-	var dir = __dirname+"/songs";
+	var dir = path.join(__dirname, "/songs");
 	if (!fs.existsSync(dir)){
     	fs.mkdirSync(dir);
 
 	}
-  return fs.readdirSync(__dirname+"/songs").filter(function(file) {
-    return fs.statSync(path.join(__dirname+"/songs", file)).isDirectory();
+  return fs.readdirSync(path.join(__dirname, "/songs")).filter(function(file) {
+    return fs.statSync(path.join(__dirname, "/songs", file)).isDirectory();
   });
 }
 ipc.on('getSavedSongs', function(event, arg) {
