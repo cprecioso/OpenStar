@@ -5,7 +5,7 @@
   "main": "build/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vulpino/berb.git"
+    "url": "https://github.com/pabgn/OpenStar.git"
   },
   "author": "pabgn",
   "license": "MIT",
@@ -42,29 +42,40 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {
+    "htmlparser": "1.7.7",
+    "jquery": "^1.12",
+    "q": "^1.4.1",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
-    "jquery":"^1.12",
-    "slick-carousel":"^1.5.9",
-    "react-global":"0.1.8",
-    "request":"2.69.0",
-    "soupselect":"0.2.0",
-    "htmlparser":"1.7.7",
-    "tough-cookie-filestore":"0.0.1",
-    "webtorrent":"0.82.1",
-    "stream-transcoder":"0.0.5"
+    "react-global": "0.1.8",
+    "request": "2.69.0",
+    "slick-carousel": "^1.5.9",
+    "soupselect": "0.2.0",
+    "stream-transcoder": "0.0.5",
+    "tough-cookie-filestore": "0.0.1",
+    "webtorrent": "0.82.1"
   },
- "builder" : {
-    "osx" : {
+  "builder": {
+    "osx": {
       "title": "Electron Builder Example",
       "background": "installer.png",
       "icon": "mount.icns",
       "icon-size": 80,
       "contents": [
-        { "x": 438, "y": 344, "type": "link", "path": "/Applications" },
-        { "x": 192, "y": 344, "type": "file" }
+        {
+          "x": 438,
+          "y": 344,
+          "type": "link",
+          "path": "/Applications"
+        },
+        {
+          "x": 192,
+          "y": 344,
+          "type": "file"
+        }
       ]
-   }},
+    }
+  },
   "scripts": {
     "start": "gulp serve",
     "package": "gulp package",
